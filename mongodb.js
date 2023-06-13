@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const internal = require("stream");
 
 const uri =
   "mongodb+srv://ori:ori123@myshop.uhdnmyx.mongodb.net/myshopdatabase?retryWrites=true&w=majority";
@@ -20,6 +21,14 @@ const logInSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  email: {
+    type: String,
+    required : true,
+  },
+  permission : {
+    type : int,
+    required : true,
   },
 });
 
