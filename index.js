@@ -31,27 +31,47 @@ app.get('/', (req, res) => {
 
 //קבלת הפקודה אקטשיון מ signup.ejs והתמודדות איתה
 app.post('/signup', async (req, res) => {
+    const checking = await LogInCollection.find({});
     const data = {
         name: req.body.name,
-        password: req.body.password
+        password: req.body.password,
+        email:req.body.email,
+        permission:0
     };
-
-    const checking = await LogInCollection.find({});
+    const email = req.body.email;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (emailRegex.test(email)) {
+      // Valid email address
+      console.log("Email is valid");
+    if(checking.length===0){
+        await LogInCollection.insertMany([data]);
+    }
     for(var i=0 ; i<checking.length ; i++){
+        console.log('here we are');
     try {
         if (checking[i].name === req.body.name) {
             res.send("user details already exist");
         } else {
+            console.log(data)
             await LogInCollection.insertMany([data]);
         }
     } catch {
         res.send("wrong inputs");
     }
+}
+    }
+else {
+    // Invalid email address
+    console.log("Email is invalid");
+    res.send("wrong mail");
+
+  }
 
     res.status(201).render("home", {
         naming: req.body.name
     });
-}
+
 });
 
 // קבלת אקטשיון מהלוגין.איגיס והתמודדות איתה
@@ -67,7 +87,7 @@ app.post('/login', async (req, res) => {
         }
     }
     if(flag!=1){
-        res.send('coshilirabak');
+        res.send('user details not exist.. please try again');
     }
 });
 
