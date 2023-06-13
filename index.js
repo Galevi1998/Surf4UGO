@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-//שמירת נתיבים והודעה
+//save paths and messages
 
 const publicPath = path.join(__dirname, '../public');
 console.log(publicPath);
