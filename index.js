@@ -4,10 +4,14 @@ const path = require("path");
 const app = express();
 const LogInCollection = require("./mongodb");
 const { CLIENT_RENEG_LIMIT } = require("tls");
+const cookieParser = require('cookie-parser');
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
+app.use(cookieParser());
+
 
 //save paths and messages
 
@@ -26,9 +30,34 @@ app.get('/signup', (req, res) => {
 // שהמשתמש מסיים עם סיומת רגילה- דיפולטיבית אז נציב לו את הקובץ login.ejs
 
 app.get('/', (req, res) => {
-    res.render('login');
+    const username = req.cookies.username;
+    if (username) {
+        console.log(username);
+      res.render('home', { naming: username });
+    } else {
+      res.render('home', { naming: 'Guest' });
+    }
 });
 
+app.get('/login' ,(req,res)=>{
+    const username = req.cookies.username;
+    if (username) {
+        console.log(username);
+      res.render('login', { naming: username });
+    } else {
+      res.render('login', { naming: 'Guest' });
+    }
+})
+
+app.post('/delCoocike',async(req,res)=>{
+  console.log('Got in');
+  var cookies = req.cookies;
+  for (var cookieName in cookies) {
+    res.clearCookie(cookieName);
+  }
+
+  res.render('home',{naming:'Guest'});
+})
 //קבלת הפקודה אקטשיון מ signup.ejs והתמודדות איתה
 app.post('/signup', async (req, res) => {
     const checking = await LogInCollection.find({});
@@ -78,10 +107,15 @@ else {
 // בדיקה בבסיס נתונים שלנו האם קיין שם משתמש וסיסמא של אותו משתמש
 app.post('/login', async (req, res) => {
     var flag =0;
+    const username = req.body.name;
+    const password = req.body.password;
         const check = await LogInCollection.find({});
         for(var i=0 ; i<check.length;i++){
         if (check[i].password === req.body.password && check[i].name === req.body.name) {
-            res.status(201).render("home", { naming: `${req.body.password}+${req.body.name}` });
+            console.log(username);
+            res.cookie('username', username);
+            console.log(req.coockies);
+            res.render("home", { naming: `${username}` });
             flag=1;
             break;
         }

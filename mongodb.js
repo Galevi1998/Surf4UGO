@@ -26,8 +26,8 @@ const logInSchema = new mongoose.Schema({
     type: String,
     required : true,
   },
-  permission : {
-    type : int,
+  permission :{
+    type : Number,
     required : true,
   },
 });
