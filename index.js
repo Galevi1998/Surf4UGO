@@ -23,11 +23,15 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(publicPath));
 
-// שהמשתמש מסיים עם סיומת סינאפ אז נציב לו את הקובץ signup.ejs
-app.get('/signup', (req, res) => {
-    res.render('signup');
-});
-// שהמשתמש מסיים עם סיומת רגילה- דיפולטיבית אז נציב לו את הקובץ login.ejs
+
+//Creating Route for login page
+const LoginRouter = require('./Routers/routes/login');
+const SignUpRouter = require('./Routers/routes/signup');
+
+app.use('/login',LoginRouter);
+
+//Creating Route for sign up page
+app.use('/signup',SignUpRouter);
 
 app.get('/', (req, res) => {
     const username = req.cookies.username;
@@ -39,16 +43,8 @@ app.get('/', (req, res) => {
     }
 });
 
-app.get('/login' ,(req,res)=>{
-    const username = req.cookies.username;
-    if (username) {
-        console.log(username);
-      res.render('login', { naming: username });
-    } else {
-      res.render('login', { naming: 'Guest' });
-    }
-})
 
+//Deleting the Data from coockies
 app.post('/delCoocike',async(req,res)=>{
   console.log('Got in');
   var cookies = req.cookies;
@@ -58,54 +54,85 @@ app.post('/delCoocike',async(req,res)=>{
 
   res.render('home',{naming:'Guest'});
 })
-//קבלת הפקודה אקטשיון מ signup.ejs והתמודדות איתה
-app.post('/signup', async (req, res) => {
-    const checking = await LogInCollection.find({});
-    const data = {
-        name: req.body.name,
-        password: req.body.password,
-        email:req.body.email,
-        permission:0
-    };
-    const email = req.body.email;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (emailRegex.test(email)) {
-      // Valid email address
-      console.log("Email is valid");
-    if(checking.length===0){
-        await LogInCollection.insertMany([data]);
-    }
-    for(var i=0 ; i<checking.length ; i++){
-        console.log('here we are');
-    try {
-        if (checking[i].name === req.body.name) {
-            res.send("user details already exist");
-        } else {
-            console.log(data)
-            await LogInCollection.insertMany([data]);
-        }
-    } catch {
-        res.send("wrong inputs");
-    }
-}
-    }
-else {
-    // Invalid email address
-    console.log("Email is invalid");
-    res.send("wrong mail");
 
-  }
 
-    res.status(201).render("home", {
-        naming: req.body.name
-    });
-
+// Activate Server
+app.listen(3000, () => {
+    console.log('port connected');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//קבלת הפקודה אקטשיון מ signup.ejs והתמודדות איתה
+// app.post('/signup', async (req, res) => {
+//     const checking = await LogInCollection.find({});
+//     const data = {
+//         name: req.body.name,
+//         password: req.body.password,
+//         email:req.body.email,
+//         permission:0
+//     };
+//     const email = req.body.email;
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+//     if (emailRegex.test(email)) {
+//       // Valid email address
+//       console.log("Email is valid");
+//     if(checking.length===0){
+//         await LogInCollection.insertMany([data]);
+//     }
+//     for(var i=0 ; i<checking.length ; i++){
+//         console.log('here we are');
+//     try {
+//         if (checking[i].name === req.body.name) {
+//             res.send("user details already exist");
+//         } else {
+//             console.log(data)
+//             await LogInCollection.insertMany([data]);
+//         }
+//     } catch {
+//         res.send("wrong inputs");
+//     }
+// }
+//     }
+// else {
+//     // Invalid email address
+//     console.log("Email is invalid");
+//     res.send("wrong mail");
+
+//   }
+
+//     res.status(201).render("home", {
+//         naming: req.body.name
+//     });
+
+// });
 
 // קבלת אקטשיון מהלוגין.איגיס והתמודדות איתה
 // בדיקה בבסיס נתונים שלנו האם קיין שם משתמש וסיסמא של אותו משתמש
-app.post('/login', async (req, res) => {
+/*app.post('/login', async (req, res) => {
     var flag =0;
     const username = req.body.name;
     const password = req.body.password;
@@ -123,9 +150,38 @@ app.post('/login', async (req, res) => {
     if(flag!=1){
         res.send('user details not exist.. please try again');
     }
-});
+});*/
 
-// הפעלת השרת
-app.listen(3000, () => {
-    console.log('port connected');
-});
+
+
+
+
+
+
+
+
+//--------------NEED TO SEND TO THE ROUTER OF LOGIN
+
+/*app.get('/login' ,(req,res)=>{
+    const username = req.cookies.username;
+    if (username) {
+        console.log(username);
+      res.render('login', { naming: username });
+    } else {
+      res.render('login', { naming: 'Guest' });
+    }
+})*/
+
+
+
+
+
+
+
+
+
+// שהמשתמש מסיים עם סיומת סינאפ אז נציב לו את הקובץ signup.ejs
+// app.get('/signup', (req, res) => {
+//     res.render('signup');
+// });
+// שהמשתמש מסיים עם סיומת רגילה- דיפולטיבית אז נציב לו את הקובץ login.ejs
