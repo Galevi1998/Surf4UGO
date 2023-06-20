@@ -1,46 +1,126 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  text-align: center;
+*{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+/* כפתורים של כרטיסים */
+.card-body a{
+  background-color:rgb(161, 193, 219) ;
+  color:white;
+  border: transparent;
+  
+}
+/* סרגל עליון */
+.container-fluid{
+background-color: rgb(161, 193, 219);
+
+}
+/* כפתורים של סרגל עליון */
+.navbar-nav li{
+margin-left: 10px;
 }
 
-/* Heading styles */
-h1 {
-  color: #333;
-  font-size: 32px;
-  text-align: center;
+/* טקסט של הכפתורים בסרגל העליון */
+.nav-item a{
+  color:aliceblue;
 }
 
-/* Button styles */
-button {
-  background-color: #4CAF50;
-  border: none;
+/* סרגל חיפוש */
+.d-flex{
+  padding-left: 150px;
+  padding-top: 7px;
+  width:400px;
+}
+
+/* כפתור חיפוש */
+.d-flex button{
+  background-color:rgb(161, 193, 219) ;
+  color:white;
+  border: transparent;
+}
+
+.d-flex button:hover{
+  background-color:rgb(161, 193, 219) ;
+  color:black;
+  border: transparent;
+}
+
+
+/* באנר */
+.jumbotron{
+  background-image: url(../images/banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  
+}
+/* כפתור של הבאנר */
+.jumbotron button{
+  background-color: transparent;
   color: white;
-  padding: 10px 20px;
+  font-size:x-large;
+  border-color: transparent;
+  padding-top: 400px;
+}
+
+/* ריחוף על הכפתור של הבאנר */
+.jumbotron button:hover{
+  background-color: transparent;
+  color: black;
+  font-size:x-large;
+  border-color: transparent;
+  padding-top: 400px;
+}
+
+/* כפתורים אמצעיים בסרגל העליון */
+#mid{
+  align-items: center;
+  padding-left:300px;
+}
+
+/* סרגל תחתון */
+footer{
+  
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
+  padding: 3px;
+  background-color: rgb(161, 193, 219);
+  color: white;
+  margin-top: 100px;
+
 
 }
 
-/* Form styles */
-form {
-  text-align: center;
+/* טבלה של סל קניות */
+
+.table-responsive-sm{
+  padding-left: 100px;
+width: 1200px;
+height: 200px;
+
+}
+/* כפתור הסרת מוצר */
+.table-responsive-sm button{
+  background-color:rgb(161, 193, 219) ;
+  color:white;
+  border: transparent;
 }
 
-/* Links styles */
-h3 {
-  text-align: center;
-  margin: 10px 0;
+/* כותרת של הטבלה */
+.container1 h2{
+  padding-left: 100px;
 }
 
-a {
-  color: #4CAF50;
-  text-decoration: none;
-  text-align: center;
+/* אודותינו */
 
+.contain{
+background-color: rgb(161, 193, 219);
+max-width: 960px;
+margin-left: 100px;
+}
+
+.contain h2{
+  color:white;
+}
+
+.contain h6{
+  color:white;
 }
