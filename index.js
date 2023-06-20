@@ -23,15 +23,80 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(publicPath));
 
+//------------------Routers----------------------
 
 //Creating Route for login page
 const LoginRouter = require('./Routers/routes/login');
-const SignUpRouter = require('./Routers/routes/signup');
-
+//Activate Route for sign up page
 app.use('/login',LoginRouter);
+//----------------------------------------
 
-//Creating Route for sign up page
+//Creating Route for Sign Up page
+const SignUpRouter = require('./Routers/routes/signup');
+//Activate Route for sign up page
 app.use('/signup',SignUpRouter);
+//---------------------------------------
+
+//Creating Route for AddProduct page
+const AddProducts = require('./Routers/routes/Addproduct');
+//Activate Route for sign up page
+app.use('/Addproduct',AddProducts);
+//----------------------------------------
+
+//Creating Route for Update page
+const UpdateProducts = require('./Routers/routes/updateproducts');
+//Activate Route for Update page
+app.use('/updateproducts',UpdateProducts);
+//----------------------------------------
+
+//Creating Route for surfboard page
+const Surfboards = require('./Routers/routes/surfboard');
+//Activate Route for surfboard page
+app.use('/surfboard',Surfboards);
+//----------------------------------------
+
+//Creating Route for sunglasses page
+const sunglasses1 = require('./Routers/routes/sunglasses');
+//Activate Route for sunglasses page
+app.use('/sunglasses',sunglasses1);
+//----------------------------------------
+
+//Creating Route for clothing page
+const clothing1 = require('./Routers/routes/clothing');
+//Activate Route for clothing page
+app.use('/clothing',clothing1);
+
+//----------------------------------------
+
+//Creating Route for boardshorts page
+const boardshorts = require('./Routers/routes/boardshorts');
+//Activate Route for boardshorts page
+app.use('/boardshorts',boardshorts);
+//----------------------------------------
+
+//Creating Route for surfingequipment page
+const SurfEQ = require('./Routers/routes/surfingequipment');
+//Activate Route for surfingequipment page
+app.use('/surfingequipment',SurfEQ);
+//----------------------------------------
+
+//Creating Route for allproducts page
+const AllP = require('./Routers/routes/allproducts');
+//Activate Route for allproducts page
+app.use('/allproducts',AllP);
+
+//----------------------------------------
+
+//Creating Route for outofstock page
+const AllO = require('./Routers/routes/outofstock');
+//Activate Route for outofstock page
+app.use('/outofstock',AllO);
+//----------------------------------------
+
+//Creating Route for ShowSingleProduct page
+const showS = require('./Routers/routes/show1product');
+//Activate Route for outofstock page
+app.use('/show1product',showS);
 
 app.get('/', (req, res) => {
     const username = req.cookies.username;
@@ -60,6 +125,7 @@ app.post('/delCoocike',async(req,res)=>{
 app.listen(3000, () => {
     console.log('port connected');
 });
+
 
 
 
