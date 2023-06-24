@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product {
+          border: 1px solid lightblue;
+          border-radius: 5px;
+          padding: 10px;
+          margin-bottom: 20px;
+          width: 22%;
+          display: inline-block;
+          vertical-align: top;
+        }
+  
+        .product-image {
+          max-width: 200px;
+          max-height: 200px;
+        }
+  
+        .product-name {
+          font-size: 16px;
+          margin-top: 5px;
+        }
+  
+        .button-container {
+          display: flex;
+          justify-content: space-between;
+        }
+  
+        .button {
+          background-color: lightblue;
+          padding: 10px;
+          border-radius: 5px;
+          color: white;
+          text-decoration: none;
+          margin-top: 10px;
+          display: block;
+          width: 48%;
+          text-align: center;
+        }
+  
+        .product-description {
+          margin-top: 10px;
+        }
+      </style>
+</head>
+<body>
+    <% if (products.length > 0) { %>
+        <h1><%= products[0].brand %> List</h1>
+          <form action="/SupplierPage" method="post">
+      <div class="sorting-container">
+        <label for="sorting">Sort By:</label>
+        <select id="sorting" name="sorting">
+          <option value="product-name">Name</option>
+          <option value="product-price">Price</option>
+          <option value="product-brand">Brand</option>
+        </select>
+      </div>
+      <button type="submit">Click to sort</button>
+    </form>
+    <a class="button" href="/Addproduct/">Add Product</a>
+    <div class="product-container">
+      <% products.forEach(function(product) { %>
+        <div class="product">
+          <h2 class="product-name"><%= product["name of product"] %></h2>
+          <p>Price: $<%= product.price %></p>
+          <p>Quantity: <%= product.quantity %></p>
+          <h3>Product Image</h3>
+          <% if (product.picture) { %>
+            <img class="product-image" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" />
+          <% } else { %>
+            <p>No image available</p>
+          <% } %>
+          <p class="product-description"><%= product.description %></p>
+          <div class="button-container">
+            <a class="button" href="#">Delete</a>
+            <a class="button" href="/updateproducts/<%= product["name of product"] %>">Update</a>
+            <a class="button" href="/show1product/<%= product['name of product'] %>">Product page</a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+    <% } else { %>
+        <h1>There are no products</h1>
+        <a class="button" href="/AddProduct/">Add Product</a>
+      <% } %>
+</body>
+</html>

@@ -23,15 +23,16 @@ router.get('/',(req,res)=>{
 
 router.post('/', async (req, res) => {
     var flag =0;
-    const username = req.body.name;
+    const username = req.body.name.trim();
     const password = req.body.password;
         const check = await LogInCollection.find({});
         for(var i=0 ; i<check.length;i++){
         if (check[i].password === req.body.password && check[i].name === req.body.name) {
             console.log(username);
             res.cookie('username', username);
+            res.cookie('Permission', check[i].permission);
             console.log(req.coockies);
-            res.render("home", { naming: `${username}` });
+            res.render("home", { naming: `${username}`,permission: check[i].permission});
             flag=1;
             break;
         }
