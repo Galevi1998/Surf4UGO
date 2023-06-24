@@ -24,7 +24,6 @@ app.set('view engine', 'ejs');
 app.use(express.static(publicPath));
 
 //------------------Routers----------------------
-
 //Creating Route for login page
 const LoginRouter = require('./Routers/routes/login');
 //Activate Route for sign up page
@@ -95,16 +94,36 @@ app.use('/outofstock',AllO);
 
 //Creating Route for ShowSingleProduct page
 const showS = require('./Routers/routes/show1product');
-//Activate Route for outofstock page
+//Activate Route for ShowSingleProduct page
 app.use('/show1product',showS);
+//----------------------------------------
+
+//Creating Route for SupplierPage page
+const showSup = require('./Routers/routes/SupplierPage');
+//Activate Route for SupplierPage page
+app.use('/SupplierPage',showSup);
+//----------------------------------------
+
+//Creating Route for manager page
+const manager = require('./Routers/routes/manager');
+//Activate Route for manager page
+app.use('/manager',manager);
+//----------------------------------------
+
+//Creating Route for serach page
+const searchRouter  = require('./Routers/routes/search');
+//Activate Route for boardshorts page
+app.use('/search',searchRouter);
+//--------------End_Of_Routing--------------------------
 
 app.get('/', (req, res) => {
     const username = req.cookies.username;
+    const permission = req.cookies.Permission;
     if (username) {
         console.log(username);
-      res.render('home', { naming: username });
+      res.render('home', { naming: username,permission:permission });
     } else {
-      res.render('home', { naming: 'Guest' });
+      res.render('home', { naming: 'Guest' ,permission:0 });
     }
 });
 
@@ -117,7 +136,7 @@ app.post('/delCoocike',async(req,res)=>{
     res.clearCookie(cookieName);
   }
 
-  res.render('home',{naming:'Guest'});
+  res.render('home',{naming:'Guest',permission:0});
 })
 
 
