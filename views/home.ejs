@@ -21,45 +21,49 @@
         <!-- סרגל עליון -->
         <nav class="navbar navbar-expand-sm bg-light navbar-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="/">
                 <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
               </a>
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav" id="right">
-                    <li class="nav-item">
+                   
+               
+                  <li class="nav-item">
+                    <div class="dropdown">
+                      <button class="dropbtn"><span class="glyphicon glyphicon-user"></span></button>
+                      <div class="dropdown-content">
+                        <% if(naming=='Guest'){%>
+                          <a class="nav-link" href="/login">login</a>
+                          <%}%>
+                          <% if(naming=='Guest'){%>
+                            <a  class="nav-link" href="/signup">Sign Up</a>
+                            <%}%>
+                            <% if(naming!='Guest'){%>
+                              <form action="/delCoocike" method="post">
+                                  <button  class="nav-link" type="submit">Log out</button>
+                                </form>    
+                                <%}%>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                   </li> 
                   <li class="nav-item">
                     <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
                   </li> 
-                  <% if(permission==1) {%>
-                  <li class="nav-item">
-                    <a id="Home" class="nav-link" href="/SupplierPage">Your Product page</a>
-                  </li>
-                  <%}%>
                   <% if(permission==2) {%>
                     <li class="nav-item">
                       <a id="Home" class="nav-link" href="/manager">Manager Page</a>
                     </li>
                     <%}%>
-                  <li class="nav-item">
-                    <% if(naming=='Guest'){%>
-                      <a class="nav-link" href="/login">login</a>
-                      <%}%>
                   </li> 
-                  <li class="nav-item">
-                    <% if(naming=='Guest'){%>
-                      <a  class="nav-link" href="/signup">Sign Up</a>
-                      <%}%>
-                  </li> 
-                  <li class="nav-item">
-                    <% if(naming!='Guest'){%>
-                      <form action="/delCoocike" method="post">
-                          <button  class="nav-link" type="submit">Log out</button>
-                        </form>    
-                        <%}%>
-                  </li> 
-                  
+                  <% if(permission==1) {%>
+                    <li class="nav-item">
+                      <a id="Home" class="nav-link" href="/SupplierPage">Supllier Page</a>
+                    </li>
+                    <%}%>
+
                 </ul>
                 <ul class="navbar-nav" id="mid">
                   <li class="nav-item">
@@ -72,7 +76,7 @@
                     <a class="nav-link" href="/clothing">Clothing</a>
                   </li> 
                   <li class="nav-item">
-                    <a class="nav-link" href="/boardshorts">boardshorts</a>
+                    <a class="nav-link" href="/boardshorts">Boardshorts</a>
                   </li> 
                   <li class="nav-item">
                     <a class="nav-link" href="/surfingequipment">Surfing accessories </a>
@@ -95,64 +99,64 @@
      <div class="jumbotron">
         <button class="btn btn-primary" type="button">Learn about us</button>
       </div>
-         
-    
+
+
           <!-- מוצרים מומלצים -->
           <div class="container">
             <h2>Recommended products</h2>
           <div class="card-columns">
-                <div class="card" style="width:280px">
-                    <img class="card-img-top" src="/images/surf.png" alt="Card image">
+                <div class="card" style="width:280px;height: 600px;">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0429/3283/0376/products/finless_600x.jpg?v=1595330393" alt="Card image">
                     <div class="card-body">
-                      <h4 class="card-title">Product name</h4>
-                      <p class="card-text">Price:</p>
-                      <p class="card-text">Description:</p>
-                      <a href="#" class="btn btn-primary">See Product</a>
+                      <h4 class="card-title">Snaked Finless - Black</h4>
+                      <p class="card-text">Price: 500$</p>
+                      <p class="card-text">The Snaked Finless in Black is a unique and innovative surfboard designed for riders who enjoy the feeling of speed and freedom...</p>
+                      <a href="/show1product/Snaked Finless - Black" class="btn btn-primary">See Product</a>
                     </div>
                 </div>
-                <div class="card" style="width:280px">
-                    <img class="card-img-top" src="/images/surf.png" alt="Card image">
+                <div class="card" style="width:280px;height: 600px;">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0568/6008/2373/products/SAWX16-wax-fridge_22-B_1800x1800.jpg?v=1647302310" alt="Card image">
                     <div class="card-body">
-                      <h4 class="card-title">Product name</h4>
-                      <p class="card-text">Price:</p>
-                      <p class="card-text">Description:</p>
-                      <a href="#" class="btn btn-primary">See Product</a>
+                      <h4 class="card-title">Fridge Wax for Surfboards</h4>
+                      <p class="card-text">Price: 7$</p>
+                      <p class="card-text">Keep your surfboard performing at its best with the Fridge Wax by Ocean & Earth. This specially formulated surf wax provides excellent traction and grip...</p>
+                      <a href="/show1product/Fridge Wax for Surfboards" class="btn btn-primary">See Product</a>
                     </div>
                 </div>
-                <div class="card" style="width:280px">
-                    <img class="card-img-top" src="/images/surf.png" alt="Card image">
+                <div class="card" style="width:280px;height: 600px;">
+                    <img class="card-img-top" src="https://images.boardriders.com/globalGrey/billabong-products/all/default/hi-res/abyft00391_billabong,w_blk_frt1.jpg" alt="Card image">
                     <div class="card-body">
-                      <h4 class="card-title">Product name</h4>
-                      <p class="card-text">Price:</p>
-                      <p class="card-text">Description:</p>
-                      <a href="#" class="btn btn-primary">See Product</a>
+                      <h4 class="card-title">Core Arch Hoodie</h4>
+                      <p class="card-text">Price: 60$</p>
+                      <p class="card-text">The Core Arch Hoodie from Billabong is a classic hoodie designed for ultimate comfort and style...</p>
+                      <a href="/show1product/Core Arch Hoodie" class="btn btn-primary">See Product</a>
                     </div>
                 </div>
-                <div class="card" style="width:280px">
-                    <img class="card-img-top" src="/images/surf.png" alt="Card image">
+                <div class="card" style="width:280px;height: 600px;">
+                    <img class="card-img-top" src="https://images.boardriders.com/globalGrey/billabong-products/all/default/medium-large/abybs00387_billabong,f_tea_frt1.jpg" alt="Card image">
                     <div class="card-body">
-                      <h4 class="card-title">Product name</h4>
-                      <p class="card-text">Price:</p>
-                      <p class="card-text">Description:</p>
-                      <a href="#" class="btn btn-primary">See Product</a>
+                      <h4 class="card-title">Billabong Sundays Pro Performance Boardshorts zebra</h4>
+                      <p class="card-text">Price: 89$</p>
+                      <p class="card-text">The Billabong Sundays Pro Performance Boardshorts are designed for surfers who demand performance and style. With a 19" length and high-quality...</p>
+                      <a href="/show1product/Billabong Sundays Pro Performance Boardshorts zebra" class="btn btn-primary">See Product</a>
                     </div>
                 </div>
-                <div class="card" style="width:280px">
-                    <img class="card-img-top" src="/images/surf.png" alt="Card image">
+                <div class="card" style="width:280px;height: 600px;">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0568/6008/2373/products/SARX29-Freestanding-Surfboard-Rax-22-B_1800x1800.jpg?v=1649051153" alt="Card image">
                     <div class="card-body">
-                      <h4 class="card-title">Product name</h4>
-                      <p class="card-text">Price:</p>
-                      <p class="card-text">Description:</p>
-                      <a href="#" class="btn btn-primary">See Product</a>
+                      <h4 class="card-title">Free Standing Rax</h4>
+                      <p class="card-text">Price: 129$</p>
+                      <p class="card-text">The Free Standing Rax from Ocean & Earth is the perfect solution for safely transporting and storing your surfboards. This versatile rack system can hold up to 4 surfboards...</p>
+                      <a href="/show1product/Free Standing Rax" class="btn btn-primary">See Product</a>
                     </div>
                 </div>
-                <div class="card" style="width:280px">
-                    <img class="card-img-top" src="/images/surf.png" alt="Card image">
+                <div class="card" style="width:280px;height: 600px;">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0267/0562/5187/products/mikasa-official-fivb-game-ball-vls300-1_1024x1024@2x.png?v=1622211955" alt="Card image">
                     <div class="card-body">
-                      <h4 class="card-title">Product name</h4>
-                      <p class="card-text">Price:</p>
-                      <p class="card-text">Description:</p>
-                      <a href="#" class="btn btn-primary">See Product</a>
+                      <h4 class="card-title">Mikasa</h4>
+                      <p class="card-text">Price: 59$</p>
+                      <p class="card-text">The Mikasa Official FIVB Game Ball VLS300 is the official game ball used in professional beach volleyball competitions...</p>
+                      <a href="/show1product/Mikasa" class="btn btn-primary">See Product</a>
                     </div>
                 </div>
           </div>
@@ -199,11 +203,17 @@
             });
           </script>
           <!-- פוטר -->
-    <footer>
-        <p>Author: Ori Daniel, Gal Levi, Eden Tassa, Nofar 
-            Mahani<br>
-            <a href="surf4u@colman.com">hege@example.com</a></p>
-    </footer>
+          <footer>
+            <p>Author: Ori Daniel, Gal Levi, Eden Tassa, Nofar 
+                Mahani<br>
+                        <a href="surf4u@colman.com">surf4u@gmail.com</a></p>
+                    <p class="links">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.6721511519377!2d34.77358836137001!3d31.96978982491136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b30236ef5d51%3A0x6c10ba446a77cd0c!2z15TXnteb15zXnNeUINec157XoNeU15wg16jXkNep15XXnyDXnNem15nXldef!5e0!3m2!1siw!2sil!4v1687190519701!5m2!1siw!2sil" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      <img src="../images/logo.png" class="rounded-circle" alt="Cinque Terre" style="height: 100px;width: 100px;"> 
+                      <a href="https://www.facebook.com/pages/Surf4you/211400888937187"><img src="../images/facebook.png" height="50px" width="200px"></a>
+                    </p>
+                        
+        </footer>
         <script src="index.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
