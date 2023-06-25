@@ -2,6 +2,8 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
+
+
 /* כפתורים של כרטיסים */
 .card-body a{
   background-color:rgb(161, 193, 219) ;
@@ -19,30 +21,60 @@ background-color: rgb(161, 193, 219);
 margin-left: 10px;
 }
 
+
 /* טקסט של הכפתורים בסרגל העליון */
 .nav-item a{
   color:aliceblue;
 }
+.nav-item a:hover{
+  color: rgb(158, 164, 169)  ;
 
-/* סרגל חיפוש */
-.d-flex{
-  padding-left: 150px;
-  padding-top: 7px;
-  width:400px;
 }
 
-/* כפתור חיפוש */
-.d-flex button{
+/* כפתור יוזר */
+.dropbtn {
+  background-color: rgb(161, 193, 219);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropbtn:hover{
   background-color:rgb(161, 193, 219) ;
-  color:white;
+  color: rgb(158, 164, 169);
   border: transparent;
 }
 
-.d-flex button:hover{
-  background-color:rgb(161, 193, 219) ;
-  color:black;
-  border: transparent;
+/* מיקום התוכן של הכפתור */
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
+
+/* קופסת התוכן */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* ריחוף בתוך התפריט */
+.dropdown-content a:hover {background-color: rgb(161, 193, 219);}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: rgb(161, 193, 219);} 
 
 
 /* באנר */
@@ -65,7 +97,7 @@ margin-left: 10px;
 /* ריחוף על הכפתור של הבאנר */
 .jumbotron button:hover{
   background-color: transparent;
-  color: black;
+  color: rgb(158, 164, 169) ;
   font-size:x-large;
   border-color: transparent;
   padding-top: 400px;
@@ -74,7 +106,16 @@ margin-left: 10px;
 /* כפתורים אמצעיים בסרגל העליון */
 #mid{
   align-items: center;
-  padding-left:300px;
+  padding-left:100px;
+}
+
+/* אזור מומלצים */
+#cards{
+  margin-bottom: 30px;
+}
+
+.container h2{
+  color:rgb(161, 193, 219);
 }
 
 /* סרגל תחתון */
@@ -85,9 +126,18 @@ footer{
   background-color: rgb(161, 193, 219);
   color: white;
   margin-top: 100px;
-
-
+display: flex;
 }
+
+    footer iframe{
+  margin-right:80px;
+  
+    } 
+  
+    footer img{
+      margin-right: 100px;
+      margin-bottom: 60px;
+    } 
 
 /* טבלה של סל קניות */
 
@@ -124,3 +174,186 @@ margin-left: 100px;
 .contain h6{
   color:white;
 }
+
+/* טופס התחברות/הרשמה */
+.container-xxl{
+  margin-top: 100px;
+  width:100px;
+  height: 200px;
+
+}
+
+.container-xxl h1{
+  margin-left: 500px;
+  color:rgb(161, 193, 219);
+  
+ }
+
+ form{
+      margin-left: 500px;
+  
+}
+
+ form input{
+ border-radius: 0.3rem;
+margin-top: 10px;
+border-color: rgb(161, 193, 219);
+  
+    }
+
+    form button{
+  border-radius: 0.5rem;
+  margin-top: 20px;
+  background-color: rgb(161, 193, 219);
+  color: aliceblue;
+  border-color: white;
+    }
+
+    #buttom{
+      margin-left: 610px;
+      background-color:rgb(161, 193, 219) ;
+      color:white;
+      border: transparent;
+      margin-top: 20px;
+
+    }
+
+    /* עמוד הוספת מוצר */
+
+    .container-xxl{
+      margin-top: 100px;
+      width:100px;
+      height: 200px;
+    }
+
+    .container-xl h1{
+      margin-left: 400px;
+      color:rgb(161, 193, 219);
+      
+        }
+
+    .container-xl form{
+      margin-left:300px;
+
+    }
+
+    .container-xl form label{
+      color:rgb(161, 193, 219);
+      
+      }
+    .container-xl form input{
+    padding-right: 150px;
+    margin-left: 10px;
+    
+    }
+
+    /* עמוד מוצר בודד */
+
+  
+
+    #product h2{
+      margin-left: 300px;
+      color:rgb(161, 193, 219);
+    }
+
+    .product-description{
+      width: 300px;
+    }
+
+    #product img{
+      margin-left: 450px;
+      position: absolute;
+      margin-bottom: 30px;
+    }
+ 
+  
+    #product a{
+      background-color:rgb(161, 193, 219) ;
+  color:white;
+  border: transparent;
+  border-radius: 0.3rem;
+  
+    } 
+
+    .cont{
+      display: flex;
+    }
+
+    .desc{
+      margin-top: 70px;
+      position: relative;
+      margin-bottom:80px;
+    }
+
+    .button-container{
+         
+       margin-top: 450px;
+    }
+
+    .details{
+      position: absolute;
+    }
+
+     /* כל המוצרים */
+
+    #product2{
+      display: flex;
+    }
+    #product2 form{
+  display: flex;
+    }
+
+    .sorting-container label{
+      color:rgb(161, 193, 219) ;
+      margin-top: 20px;
+      font-size: medium;
+    }
+
+
+    .sorting-container select{
+      border-radius: 0.3rem;
+      border-color: rgb(161, 193, 219) ;
+      color: rgb(158, 164, 169);
+
+    }
+    
+    .sorting-container option{
+      color: rgb(158, 164, 169);
+    }
+
+ 
+ #product2 h1{
+  color:rgb(161, 193, 219) ;
+  margin-bottom: 30px;
+          }
+
+#products{
+  border: 1px solid rgb(161, 193, 219);
+  border-radius: 5px;
+  padding: 10px;
+ margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30px;
+
+}
+
+#product2 button{
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 15px;
+  background-color:rgb(161, 193, 219) ;
+  border-color: transparent;
+}
+
+.button-container2{
+  margin-top: 30px;
+}
+
+#description{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+} 
+
