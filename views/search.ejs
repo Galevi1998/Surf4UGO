@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style>
+    .search-container {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      min-width: 200px;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+    }
+    .dropdown-item {
+      padding: 10px;
+      text-decoration: none;
+      color: #000;
+      display: block;
+    }
+    .dropdown-item:hover {
+      background-color: #e9e9e9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Search Products</h1>
+  <div class="search-container">
+    <input class="form-control me-2" id="search-input" type="text" placeholder="Search">
+ <!-- //   <input class="form-control me-2" type="text" placeholder="Search"> -->
+
+    <div id="autocomplete-dropdown" class="dropdown-content"></div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $("#search-input").on("input", function() {
+        var searchValue = $(this).val().toLowerCase();
+        var autocompleteDropdown = $("#autocomplete-dropdown");
+        autocompleteDropdown.empty();
+
+        if (searchValue.length > 0) {
+          $.ajax({
+            url: "/search/search",
+            method: "POST",
+            data: { searchValue: searchValue },
+            success: function(response) {
+              response.forEach(function(item) {
+                var dropdownItem = $("<a>", {
+                  class: "dropdown-item",
+                  href: "/show1product/" + encodeURIComponent(item["name of product"]),
+                  text: item["name of product"]
+                });
+
+                autocompleteDropdown.append(dropdownItem);
+              });
+
+              autocompleteDropdown.show();
+            },
+            error: function(error) {
+              console.error("Failed to fetch autocomplete data:", error);
+            }
+          });
+        } else {
+          autocompleteDropdown.hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

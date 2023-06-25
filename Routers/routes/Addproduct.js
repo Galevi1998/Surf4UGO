@@ -6,10 +6,28 @@ const Product = require("../../product");
 
 
 
-router.get('/',(req,res)=>{
-  console.log('asdsadasd');
-  res.render('Addproduct');
-})
+router.get('/', async (req, res) => {
+  try {
+    //Nofar this is how you get the name of the user -
+    // Retrieve unique categories from the products collection
+    const categories = await Product.distinct("category");
+
+    // Render the "Addproduct" page and pass the categories data
+    // if(naming){
+    //   res.render('Addproduct', { categories,naming})
+    // }
+    // else{
+    //   res.render('Addproduct', {categories,naming:'Guest'});
+
+    // }
+    res.render('Addproduct', {categories});
+  } catch (error) {
+    console.error('Error retrieving categories:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
 router.post('/', async (req, res) => {
   try {
     // Retrieve the product data from the request body
@@ -30,6 +48,8 @@ router.post('/', async (req, res) => {
 
     // Create a new Product instance from the data
     const newProduct = new Product(productData);
+    newProduct.brand = req.cookies.username;
+    console.log(newProduct);
 
     // Save the product to the database
     await newProduct.save();
