@@ -52,13 +52,15 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
                   </li> 
-                  <li class="nav-item">
-                    <a id="Home" class="nav-link" href="/Addproduct">Add product</a>
-                  </li>
-                  <%}%>
                   <% if(permission==2) {%>
                     <li class="nav-item">
                       <a id="Home" class="nav-link" href="/manager">Manager Page</a>
+                    </li>
+                    <%}%>
+                  </li> 
+                  <% if(permission==1) {%>
+                    <li class="nav-item">
+                      <a id="Home" class="nav-link" href="/SupplierPage">Supllier Page</a>
                     </li>
                     <%}%>
 
