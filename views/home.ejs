@@ -30,7 +30,9 @@
                
                   <li class="nav-item">
                     <div class="dropdown">
+                      <% if(naming=='Guest'){%>
                       <button class="dropbtn"><span class="glyphicon glyphicon-user"></span></button>
+                      <%}%>
                       <div class="dropdown-content">
                         <% if(naming=='Guest'){%>
                           <a class="nav-link" href="/login">login</a>
@@ -38,19 +40,18 @@
                           <% if(naming=='Guest'){%>
                             <a  class="nav-link" href="/signup">Sign Up</a>
                             <%}%>
-                            <% if(naming!='Guest'){%>
-                              <form action="/delCoocike" method="post">
-                                  <button  class="nav-link" type="submit">Log out</button>
-                                </form>    
-                                <%}%>
                       </div>
                     </div>
-                  </li>
+                    </li>
+                  
                   <li class="nav-item">
                     <a class="nav-link" href="/Cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                   </li> 
                   <li class="nav-item">
                     <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="glyphicon glyphicon-search"></span></a>
                   </li> 
                   <% if(permission==2) {%>
                     <li class="nav-item">
@@ -88,16 +89,22 @@
                     <a class="nav-link" href="/outofstock">Out of stock</a>
                   </li> 
                 </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" id="search-input" type="text" placeholder="Search">
-                  <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                  </form>
+                <ul class="navbar-nav" id="left">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">My orders</a>
+                  </li> 
+                  </ul>
+                  <% if(naming!='Guest'){%>
+                    <form action="/delCoocike" method="post">
+                        <button  class="logout" type="submit" href="#"><span class="glyphicon glyphicon-log-out"></span></button>
+                      </form>    
+                      <%}%>
               </div>
             </div>
           </nav>
      <!-- באנר -->
      <div class="jumbotron">
-        <button class="btn btn-primary" type="button">Learn about us</button>
+        <a class="btn btn-primary" type="button" href="/learnaboutus">Learn about us</a>
       </div>
 
 

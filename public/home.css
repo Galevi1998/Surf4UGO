@@ -11,6 +11,24 @@
   border: transparent;
   
 }
+
+.logout{
+  background-color: rgb(161, 193, 219);
+  color: white;
+  padding: 16px;
+  font-size: 14px;
+  border:transparent;
+  margin-top: 0.3px;
+  margin-left: 30px;
+
+}
+
+.logout:hover{
+  background-color:rgb(161, 193, 219) ;
+  color: rgb(158, 164, 169);
+  border: transparent;
+}
+
 /* סרגל עליון */
 .container-fluid{
 background-color: rgb(161, 193, 219);
@@ -20,6 +38,7 @@ background-color: rgb(161, 193, 219);
 .navbar-nav li{
 margin-left: 10px;
 }
+
 
 
 /* טקסט של הכפתורים בסרגל העליון */
@@ -86,7 +105,7 @@ margin-left: 10px;
   
 }
 /* כפתור של הבאנר */
-.jumbotron button{
+.jumbotron a{
   background-color: transparent;
   color: white;
   font-size:x-large;
@@ -95,7 +114,7 @@ margin-left: 10px;
 }
 
 /* ריחוף על הכפתור של הבאנר */
-.jumbotron button:hover{
+.jumbotron a:hover{
   background-color: transparent;
   color: rgb(158, 164, 169) ;
   font-size:x-large;
@@ -103,12 +122,18 @@ margin-left: 10px;
   padding-top: 400px;
 }
 
+
+
 /* כפתורים אמצעיים בסרגל העליון */
 #mid{
   align-items: center;
   padding-left:100px;
 }
 
+#left{
+  padding-left: 80px;
+
+}
 /* אזור מומלצים */
 #cards{
   margin-bottom: 30px;
@@ -161,20 +186,21 @@ height: 200px;
 
 /* אודותינו */
 
-.contain{
+.container-xxl{
 background-color: rgb(161, 193, 219);
-max-width: 960px;
-margin-left: 100px;
+max-width: 1000px;
+max-height: 1500px;
+margin-left: 50px;
+text-align: center;
 }
 
-.contain h2{
-  color:white;
+.container-xxl h2{
+  padding-top: 50px;
 }
 
-.contain h6{
-  color:white;
+.container-xxl img{
+  padding-left: 40px;
 }
-
 /* טופס התחברות/הרשמה */
 .container-xxl{
   margin-top: 100px;
@@ -346,6 +372,16 @@ border-color: rgb(161, 193, 219);
   border-color: transparent;
 }
 
+
+#product2 a{
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 15px;
+  background-color:rgb(161, 193, 219) ;
+  border-color: transparent;
+  
+
+}
 .button-container2{
   margin-top: 30px;
 }
@@ -356,4 +392,30 @@ border-color: rgb(161, 193, 219);
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 } 
+
+/* עמוד מנהל */
+
+.headline{
+  color:rgb(161, 193, 219) ;
+  margin-left: 100px;
+}
+
+.table-responsive-lg{
+width: 1000px;
+margin-left: 100px;
+border-color: black;
+table-layout: fixed;
+justify-content: center;
+}
+
+.table{
+ justify-content: center;
+}
+.table-responsive-lg th{
+  color: rgb(161, 193, 219) ;
+}
+
+.table-responsive-lg td option{
+  padding-left: 100px;
+}
 
