@@ -114,6 +114,18 @@ app.use('/manager',manager);
 const searchRouter  = require('./Routers/routes/search');
 //Activate Route for boardshorts page
 app.use('/search',searchRouter);
+
+//------------------------------------------
+//Creating Route for myorders page
+const myOrders = require('./Routers/routes/myorders');
+//Activate Route for myordres page
+app.use('/myorders', myOrders);
+//------------------------------------------
+//Creating Route for Cart page
+const Cart = require('./Routers/routes/Cart');
+//Activate Route for myordres page
+app.use('/Cart', Cart);
+
 //--------------End_Of_Routing--------------------------
 
 app.get('/', (req, res) => {

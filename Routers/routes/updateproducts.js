@@ -52,6 +52,8 @@ const updateproduct = require("../../product");
     }
   });
   
+
+  
   
 
 module.exports = router;

@@ -83,6 +83,7 @@
       <button type="submit">Click to sort</button>
     </form>
   </div>
+  <form action="/surfboard/Addto" method="post">
     <div class="card-columns">
       <% products.forEach(function(product) { %>
         <div class="card" style="width:400px;height: 550px;" id="products">
@@ -92,18 +93,20 @@
             <p>No image available</p>
           <% } %>
           <div class="card-body">
-          <h2 class="card-title"><%= product["name of product"] %></h2>
-          <p class="card-text">Price: $<%= product.price %></p>
-          <p class="card-text">Quantity: <%= product.quantity %></p>
-          <p class="card-text" id="description"><%= product.description %></p>
-          <div class="button-container2">
-            <a class="btn btn-primary" href="#">Add to Wish List</a>
-            <a class="btn btn-primary" href="#">Add to Cart</a>
-            <a class="btn btn-primary" href="/show1product/<%= product['name of product'] %>">Product page</a>
-          </div></div>
+            <h2 class="card-title"><%= product["name of product"] %></h2>
+            <p class="card-text">Price: $<%= product.price %></p>
+            <p class="card-text">Quantity: <%= product.quantity %></p>
+            <p class="card-text" id="description"><%= product.description %></p>
+            <div class="button-container2">
+              <button type="submit" name="action" value="cart:<%= product["name of product"] %>">Add to Cart List</button>
+              <button type="submit" name="action" value="wishlist:<%= product["name of product"] %>">Add to Wish List</button>
+              <a class="btn btn-primary" href="/show1product/<%= product['name of product'] %>">Product page</a>
+            </div>
+          </div>
         </div>
       <% }); %>
     </div>
+  </form>
 
 
    <!-- פוטר -->

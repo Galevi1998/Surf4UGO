@@ -1,0 +1,114 @@
+<!-- myorders.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .order-container {
+            margin-bottom: 30px;
+        }
+
+        .order-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .order-table caption {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            text-align: left;
+            background-color: #f0f0f0;
+            border: 2px solid #000;
+            border-bottom: none;
+        }
+
+        .order-table thead {
+            background-color: #f0f0f0;
+        }
+
+        .order-table th,
+        .order-table td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+
+        .order-table th {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .order-table td {
+            text-align: left;
+        }
+
+        .order-table img {
+            max-height: 100px;
+            max-width: 100px;
+        }
+
+        .no-orders {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+    <!-- Add your CSS stylesheets and scripts here -->
+</head>
+<body>
+    <h1>My Orders</h1>
+    <% if (orders.length > 0) { %>
+        <% let orderGroups = {}; %>
+        <% orders.forEach((order) => { %>
+            <% if (!orderGroups[order.ordernumber]) { %>
+                <% orderGroups[order.ordernumber] = []; %>
+            <% } %>
+            <% orderGroups[order.ordernumber].push(order); %>
+        <% }) %>
+        <% Object.keys(orderGroups).forEach((orderNumber) => { %>
+            <div class="order-container">
+                <table class="order-table">
+                    <caption>Order Number: <%= orderNumber %></caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Order Number</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Picture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% orderGroups[orderNumber].forEach((order) => { %>
+                            <tr>
+                                <td><%= order.name %></td>
+                                <td><%= order.ordernumber %></td>
+                                <td><%= order["name of product"] %></td>
+                                <td><%= order.price %></td>
+                                <td><%= order.quantity %></td>
+                                <td><img src="<%= order.picture %>" alt="Product Image"></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p class="no-orders">No orders found.</p>
+    <% } %>
+    <!-- Add your additional HTML content here -->
+</body>
+</html
