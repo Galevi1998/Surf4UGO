@@ -128,6 +128,11 @@ app.use('/Cart', Cart);
 
 //--------------End_Of_Routing--------------------------
 
+// Define a route for the learnaboutus page
+app.get('/learnaboutus', (req, res) => {
+  res.render('learnaboutus');
+});
+
 app.get('/', (req, res) => {
     const username = req.cookies.username;
     const permission = req.cookies.Permission;
