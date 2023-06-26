@@ -116,6 +116,11 @@ const searchRouter  = require('./Routers/routes/search');
 app.use('/search',searchRouter);
 //--------------End_Of_Routing--------------------------
 
+// Define a route for the learnaboutus page
+app.get('/learnaboutus', (req, res) => {
+  res.render('learnaboutus');
+});
+
 app.get('/', (req, res) => {
     const username = req.cookies.username;
     const permission = req.cookies.Permission;
