@@ -214,7 +214,6 @@ text-align: center;
   color:rgb(161, 193, 219);
   
  }
- 
 
 
 #log form input{
@@ -236,7 +235,19 @@ border-color: rgb(161, 193, 219);
   width: 100px;
     }
 
+/* עמוד חיפוש */
 
+#search{
+align-items: center;
+}
+
+#search h1{
+  color: rgb(161, 193, 219);
+}
+
+#search input{
+  width: 600px;
+}
     /* עמוד הוספת מוצר */
 
 #add
