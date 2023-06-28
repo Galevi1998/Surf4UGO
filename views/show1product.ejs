@@ -15,17 +15,16 @@
 </head>
   <body>
 
-   <!-- סרגל עליון -->
-   <nav class="navbar navbar-expand-sm bg-light navbar-primary">
+  <!-- סרגל עליון -->
+  <nav class="navbar navbar-expand-sm bg-light navbar-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
       </a>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav" id="right">
-           
           <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <a class="nav-link" href="/Cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
           </li> 
           <li class="nav-item">
             <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
@@ -33,13 +32,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><span class="glyphicon glyphicon-search"></span></a>
           </li> 
-
-         <li class="nav-item">
-            <a id="Home" class="nav-link" href="/Addproduct">Add product</a>
-          </li>
-          <li class="nav-item">
-            <a id="Home" class="nav-link" href="/updateproducts">Update product</a>
-          </li>
+    
 
         </ul>
         <ul class="navbar-nav" id="mid">
@@ -65,10 +58,14 @@
             <a class="nav-link" href="/outofstock">Out of stock</a>
           </li> 
         </ul>
+        <ul class="navbar-nav" id="left">
+          <li class="nav-item">
+            <a class="nav-link" href="/myorders">My orders</a>
+          </li> 
+          </ul>
       </div>
     </div>
   </nav>
-
 
 <!-- המוצר -->
     <% products.forEach(function(product) { %>
