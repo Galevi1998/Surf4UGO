@@ -125,6 +125,11 @@ app.use('/myorders', myOrders);
 const Cart = require('./Routers/routes/Cart');
 //Activate Route for myordres page
 app.use('/Cart', Cart);
+//------------------------------------------
+//Creating Route for WishList page
+const WishList = require('./Routers/routes/WishList');
+//Activate Route for WishList page
+app.use('/WishList', WishList);
 
 //--------------End_Of_Routing--------------------------
 
