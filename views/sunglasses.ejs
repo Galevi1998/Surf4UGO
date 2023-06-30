@@ -14,59 +14,56 @@
   </head>
   <body>
     <!-- סרגל עליון -->
-  <nav class="navbar navbar-expand-sm bg-light navbar-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
-      </a>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav" id="right">
-           
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-search"></span></a>
-          </li> 
+    <nav class="navbar navbar-expand-sm bg-light navbar-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+        </a>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav" id="right">
+            <li class="nav-item">
+              <a class="nav-link" href="/Cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/search"><span class="glyphicon glyphicon-search"></span></a>
+            </li> 
+      
 
-         <li class="nav-item">
-            <a id="Home" class="nav-link" href="/Addproduct">Add product</a>
-          </li>
-          <li class="nav-item">
-            <a id="Home" class="nav-link" href="/updateproducts">Update product</a>
-          </li>
-
-        </ul>
-        <ul class="navbar-nav" id="mid">
-          <li class="nav-item">
-            <a class="nav-link" href="/allproducts">All Products</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-item" href="/surfboard">Surfboards</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/clothing">Clothing</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/boardshorts">Boardshorts</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/surfingequipment">Surfing accessories </a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/sunglasses">Sunglasses</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/outofstock">Out of stock</a>
-          </li> 
-        </ul>
+          </ul>
+          <ul class="navbar-nav" id="mid">
+            <li class="nav-item">
+              <a class="nav-link" href="/allproducts">All Products</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-item" href="/surfboard">Surfboards</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/clothing">Clothing</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/boardshorts">Boardshorts</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/surfingequipment">Surfing accessories </a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/sunglasses">Sunglasses</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/outofstock">Out of stock</a>
+            </li> 
+          </ul>
+          <ul class="navbar-nav" id="left">
+            <li class="nav-item">
+              <a class="nav-link" href="/myorders">My orders</a>
+            </li> 
+            </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-
+    </nav>
     <!-- תצוגת המוצר -->
     <div class="container" id="product2">
    <h1> Sunglasses</h1>
@@ -86,7 +83,7 @@
   <form action="/sunglasses/Addto" method="post">
     <div class="card-columns">
       <% products.forEach(function(product) { %>
-        <div class="card" style="width:400px;height: 550px;" id="products">
+        <div class="card" style="width:400px;height: 600px;" id="products">
           <% if (product.picture) { %>
             <img class="card-img-top" style="width:200px" height="200px" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" />
           <% } else { %>
