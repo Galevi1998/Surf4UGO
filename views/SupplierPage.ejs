@@ -30,7 +30,7 @@
                 <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-search"></span></a>
+                <a class="nav-link" href="/search"><span class="glyphicon glyphicon-search"></span></a>
               </li> 
   
              <li class="nav-item">
@@ -82,14 +82,14 @@
            <option value="product-brand">Brand</option>
          </select>
        </div>
-       <button type="submit">Click to sort</button>
+       <button class="btn btn-primary" type="submit">Click to sort</button>
      </form>
      <a class="btn btn-primary" href="/Addproduct/">Add Product</a>
    </div>
 
    <div class="card-columns">
     <% products.forEach(function(product) { %>
-      <div class="card" style="width:400px;height: 550px;" id="products">
+      <div class="card" style="width:400px;height: 550px;" id="products2">
         <% if (product.picture) { %>
           <img class="card-img-top" style="width:200px" height="200px" src="<%= product.picture %>" alt="<%= product['name of product'] %> Image" />
         <% } else { %>
@@ -110,7 +110,7 @@
   </div>
 <% } else { %>
     <h1>There are no products</h1>
-    <a class="button" href="/AddProduct/">Add Product</a>
+    <a class="btn btn-primary" href="/AddProduct/">Add Product</a>
       <% } %>
 
 <!-- פוטר -->

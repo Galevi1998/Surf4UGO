@@ -186,93 +186,121 @@ height: 200px;
 
 /* אודותינו */
 
-.container-xxl{
+#about{
 background-color: rgb(161, 193, 219);
-max-width: 1000px;
+max-width: 1300px;
 max-height: 1500px;
-margin-left: 50px;
+align-items: center;
 text-align: center;
 }
 
-.container-xxl h2{
+#about h2{
   padding-top: 50px;
 }
 
-.container-xxl img{
+#about img{
   padding-left: 40px;
 }
 /* טופס התחברות/הרשמה */
-.container-xxl{
+#log{
+  align-items: center;
   margin-top: 100px;
-  width:100px;
+  width:600px;
   height: 200px;
 
 }
 
-.container-xxl h1{
-  margin-left: 500px;
+#log h1{
   color:rgb(161, 193, 219);
   
  }
 
- form{
-      margin-left: 500px;
-  
-}
 
- form input{
+#log form input{
+  height: 40px;
+  width: 200px;
  border-radius: 0.3rem;
 margin-top: 10px;
 border-color: rgb(161, 193, 219);
   
     }
 
-    form button{
+    #log form button{
   border-radius: 0.5rem;
   margin-top: 20px;
   background-color: rgb(161, 193, 219);
   color: aliceblue;
   border-color: white;
+  height: 40px;
+  width: 100px;
     }
 
-    #buttom{
-      margin-left: 610px;
-      background-color:rgb(161, 193, 219) ;
-      color:white;
-      border: transparent;
-      margin-top: 20px;
+/* עמוד חיפוש */
 
-    }
+#search{
+align-items: center;
+}
 
+#search h1{
+  color: rgb(161, 193, 219);
+}
+
+#search input{
+  width: 600px;
+}
     /* עמוד הוספת מוצר */
 
-    .container-xxl{
-      margin-top: 100px;
-      width:100px;
-      height: 200px;
-    }
+#add
+{
+  margin-left: 400px;
+  align-items: center;
+}
 
-    .container-xl h1{
-      margin-left: 400px;
+    #add h1{
       color:rgb(161, 193, 219);
       
         }
 
-    .container-xl form{
-      margin-left:300px;
 
-    }
-
-    .container-xl form label{
+    #add form label{
       color:rgb(161, 193, 219);
+      font-size:medium;
       
       }
-    .container-xl form input{
-    padding-right: 150px;
-    margin-left: 10px;
-    
+   #add form input{
+    height: 40px;
+    width: 200px;
+   border-radius: 0.3rem;
+  margin-top: 10px;
+  border-color: rgb(161, 193, 219);
+    } 
+
+    #add form select{
+      height: 40px;
+    width: 200px;
+   border-radius: 0.3rem;
+  margin-top: 10px;
+  border-color: rgb(161, 193, 219);
     }
 
+    #add form textarea
+    {
+      height: 40px;
+    width: 400px;
+   border-radius: 0.3rem;
+  margin-top: 10px;
+  border-color: rgb(161, 193, 219);
+    }
+
+    #add button{
+      border-radius: 0.5rem;
+  margin-top: 20px;
+  background-color: rgb(161, 193, 219);
+  color: aliceblue;
+  border-color: white;
+  height: 40px;
+  width: 100px;
+    }
     /* עמוד מוצר בודד */
 
   
@@ -323,12 +351,27 @@ border-color: rgb(161, 193, 219);
      /* כל המוצרים */
 
     #product2{
+      align-items: center;
       display: flex;
+      margin-left: 20px;
+      
     }
-    #product2 form{
+
+ 
+     #product2 form{
+       margin-left: 600px;
   display: flex;
     }
 
+    #product2 button{
+      border-radius: 0.5rem;
+  margin-top: 20px;
+  background-color: rgb(161, 193, 219);
+  color: aliceblue;
+  border-color: white;
+  margin-left: 10px;
+  width: 100px;
+    }
     .sorting-container label{
       color:rgb(161, 193, 219) ;
       margin-top: 20px;
@@ -361,30 +404,33 @@ border-color: rgb(161, 193, 219);
   display: inline-block;
   vertical-align: top;
   margin-left: 30px;
-
+align-items: center;
 }
 
-#product2 button{
-  height: 30px;
-  margin-left: 10px;
-  margin-top: 15px;
-  background-color:rgb(161, 193, 219) ;
-  border-color: transparent;
+#products button{
+  border-radius: 0.5rem;
+  background-color: rgb(161, 193, 219);
+  color: aliceblue;
+  border-color: white;
+  height: 60px;
+  width: 100px;
+  margin-left: 5px;
 }
 
-
-#product2 a{
-  height: 30px;
-  margin-left: 10px;
-  margin-top: 15px;
-  background-color:rgb(161, 193, 219) ;
-  border-color: transparent;
-  
-
+ #products a{
+  border-radius: 0.5rem;
+  margin-top: 20px;
+  background-color: rgb(161, 193, 219);
+  color: aliceblue;
+  border-color: white;
+  height: 60px;
+  width: 110px;
+  margin-left: 5px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
 }
-.button-container2{
-  margin-top: 30px;
-}
+
 
 #description{
   overflow: hidden;
@@ -392,6 +438,42 @@ border-color: rgb(161, 193, 219);
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 } 
+
+/* עמוד ספק */
+
+#products2 button{
+  border-radius: 0.5rem;
+  background-color: rgb(161, 193, 219);
+  color: aliceblue;
+  border-color: white;
+  height: 30px;
+  width: 100px;
+  margin-left: 10px;
+}
+
+#products2{
+  border: 1px solid rgb(161, 193, 219);
+  border-radius: 5px;
+  padding: 10px;
+ margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30px;
+align-items: center;
+}
+
+#product2 a{
+  border-radius: 0.5rem;
+  background-color: rgb(161, 193, 219);
+  color: aliceblue;
+  border-color: white;
+  height: 50px;
+  width: 100px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* עמוד מנהל */
 

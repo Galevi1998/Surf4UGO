@@ -21,23 +21,16 @@
       </a>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav" id="right">
-           
           <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <a class="nav-link" href="/Cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
           </li> 
           <li class="nav-item">
             <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-search"></span></a>
+            <a class="nav-link" href="/search"><span class="glyphicon glyphicon-search"></span></a>
           </li> 
-
-         <li class="nav-item">
-            <a id="Home" class="nav-link" href="/Addproduct">Add product</a>
-          </li>
-          <li class="nav-item">
-            <a id="Home" class="nav-link" href="/updateproducts">Update product</a>
-          </li>
+    
 
         </ul>
         <ul class="navbar-nav" id="mid">
@@ -63,13 +56,17 @@
             <a class="nav-link" href="/outofstock">Out of stock</a>
           </li> 
         </ul>
+        <ul class="navbar-nav" id="left">
+          <li class="nav-item">
+            <a class="nav-link" href="/myorders">My orders</a>
+          </li> 
+          </ul>
       </div>
     </div>
   </nav>
 
-
 <!-- גוף הטופס -->
-    <div class="container-xxl" >
+<div class="container-xxl" id="log">
         <h1>Sign Up</h1> 
     <form action="/signup" method="post">
         <input placeholder="Enter name" name="name" type="text">
@@ -84,7 +81,7 @@
     </form>
       </div>
     
-    <a class="btn btn-primary" id="buttom" href="/">Go back to the Home page</a>
+    <!-- <a class="btn btn-primary" id="buttom" href="/">Go back to the Home page</a> -->
    
      <!-- פוטר -->
      <footer>

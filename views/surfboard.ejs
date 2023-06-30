@@ -29,15 +29,8 @@
             <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-search"></span></a>
+            <a class="nav-link" href="/search"><span class="glyphicon glyphicon-search"></span></a>
           </li> 
-
-         <li class="nav-item">
-            <a id="Home" class="nav-link" href="/Addproduct">Add product</a>
-          </li>
-          <li class="nav-item">
-            <a id="Home" class="nav-link" href="/updateproducts">Update product</a>
-          </li>
 
         </ul>
         <ul class="navbar-nav" id="mid">
@@ -86,7 +79,7 @@
   <form action="/surfboard/Addto" method="post">
     <div class="card-columns">
       <% products.forEach(function(product) { %>
-        <div class="card" style="width:400px;height: 550px;" id="products">
+        <div class="card" style="width:400px;height: 600px;" id="products">
           <% if (product.picture) { %>
             <img class="card-img-top" style="width:200px" height="200px" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" />
           <% } else { %>
