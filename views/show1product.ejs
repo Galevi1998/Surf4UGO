@@ -68,6 +68,7 @@
   </nav>
 
 <!-- המוצר -->
+<form action="/show1product/Addto" method="post">
     <% products.forEach(function(product) { %>
       <div div class="container" id="product">
         <h2 class="product-name"><%= product["name of product"] %></h2>
@@ -85,14 +86,14 @@
           <p>No image available</p>
         <% } %>
           <div class="button-container">
-          <a class="btn btn-primary" href="#" >Add to Wish List</a>
-          <a class="btn btn-primary" href="#">Add to Cart</a>
+            <button type="submit" name="action" value="cart:<%= product["name of product"] %>">Add to Cart List</button>
+            <button type="submit" name="action" value="wishlist:<%= product["name of product"] %>">Add to Wish List</button>
         </div>
       
         </div></div>
       </div>
     <% }); %>
-
+  </form>
 
      <!-- פוטר -->
      <footer>
