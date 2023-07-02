@@ -107,7 +107,7 @@
               <form action="/Cart/delete" method="post">
               <td>
                 <input type="hidden" name="itemName" value="<%= product['name of product'] %>">
-                <button type="submit" class="delete-button">Delete H</button>
+                <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
               </td>
               </form>
             </div>
@@ -117,7 +117,7 @@
         </tbody>
       </table>
       <p>The total price is -<%= totalPrice%> </p>
-      <button type="submit" name="action" value="buy" class="delete-button">Buy</button>
+      <button type="submit" name="action" value="buy" class="delete-button" name="action" value="Clear">Buy</button>
     </form>
     <%}%>
 

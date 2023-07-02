@@ -96,7 +96,15 @@
           <form action="/WishList/delete" method="post">
           <td>
             <input type="hidden" name="itemName" value="<%= product['name of product'] %>">
-            <button type="submit" class="delete-button">Delete</button>
+            <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+          </td>
+          </form>
+        </div>
+        <div>
+          <form action="/WishList/Addto" method="post">
+          <td>
+            <input type="hidden" name="itemName" value="<%= product['name of product'] %>">
+            <button type="submit" class="delete-button" name="action" value="cart:<%= product["name of product"] %>">Add to Cart</button>
           </td>
           </form>
         </div>
@@ -105,7 +113,7 @@
       <% }); %>
     </tbody>
   </table>
-  <button class="delete-button">Clear Wish-List</button>
+  <button class="delete-button" name="action" value="Clear">Clear Wish-List</button>
 </form>
 <% } %>
 </body>
