@@ -79,6 +79,13 @@ const SurfEQ = require('./Routers/routes/surfingequipment');
 app.use('/surfingequipment',SurfEQ);
 //----------------------------------------
 
+//Creating Route for clothing page
+const Beachproducts1 = require('./Routers/routes/beach');
+//Activate Route for clothing page
+app.use('/beach',Beachproducts1);
+
+//----------------------------------------
+
 //Creating Route for allproducts page
 const AllP = require('./Routers/routes/allproducts');
 //Activate Route for allproducts page
