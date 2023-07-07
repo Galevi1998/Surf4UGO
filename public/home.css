@@ -372,6 +372,10 @@ align-items: center;
   margin-left: 10px;
   width: 100px;
     }
+
+    #product2 a{
+      margin-top: 20px;
+    }
     .sorting-container label{
       color:rgb(161, 193, 219) ;
       margin-top: 20px;
