@@ -15,59 +15,62 @@
 </head>
   <body>
 
-  <!-- סרגל עליון -->
-  <nav class="navbar navbar-expand-sm bg-light navbar-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
-      </a>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav" id="right">
-          <li class="nav-item">
-            <a class="nav-link" href="/Cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/search"><span class="glyphicon glyphicon-search"></span></a>
-          </li> 
+              <!-- סרגל עליון -->
+              <nav class="navbar navbar-expand-sm bg-light navbar-primary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="/">
+                    <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+                  </a>
+                  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" id="right">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/Cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/WishList"><span class="glyphicon glyphicon-heart"></span></a>                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/search"><span class="glyphicon glyphicon-search"></span></a>
+                      </li> 
+                
     
-
-        </ul>
-        <ul class="navbar-nav" id="mid">
-          <li class="nav-item">
-            <a class="nav-link" href="/allproducts">All Products</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-item" href="/surfboard">Surfboards</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/clothing">Clothing</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/boardshorts">Boardshorts</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/surfingequipment">Surfing accessories </a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/sunglasses">Sunglasses</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="/outofstock">Out of stock</a>
-          </li> 
-        </ul>
-        <ul class="navbar-nav" id="left">
-          <li class="nav-item">
-            <a class="nav-link" href="/myorders">My orders</a>
-          </li> 
-          </ul>
-      </div>
-    </div>
-  </nav>
+                    </ul>
+                    <ul class="navbar-nav" id="mid">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/allproducts">All Products</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-item" href="/surfboard">Surfboards</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/clothing">Clothing</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/boardshorts">Boardshorts</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/surfingequipment">Surfing accessories </a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/sunglasses">Sunglasses</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/beach">Beachproducts</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/outofstock">Out of stock</a>
+                      </li> 
+                    </ul>
+                    <ul class="navbar-nav" id="left">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/myorders">My orders</a>
+                      </li> 
+                      </ul>
+                  </div>
+                </div>
+              </nav>
 
 <!-- המוצר -->
+<form action="/show1product/Addto" method="post">
     <% products.forEach(function(product) { %>
       <div div class="container" id="product">
         <h2 class="product-name"><%= product["name of product"] %></h2>
@@ -85,14 +88,14 @@
           <p>No image available</p>
         <% } %>
           <div class="button-container">
-          <a class="btn btn-primary" href="#" >Add to Wish List</a>
-          <a class="btn btn-primary" href="#">Add to Cart</a>
+            <button type="submit" name="action" value="cart:<%= product["name of product"] %>">Add to Cart List</button>
+            <button type="submit" name="action" value="wishlist:<%= product["name of product"] %>">Add to Wish List</button>
         </div>
       
         </div></div>
       </div>
     <% }); %>
-
+  </form>
 
      <!-- פוטר -->
      <footer>
