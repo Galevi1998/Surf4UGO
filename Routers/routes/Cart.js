@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.post('/',async(req,res)=>{
+router.post('/', async (req, res) => {
   console.log("Order");
 
   const buttonText = req.body.action;
@@ -38,67 +38,76 @@ router.post('/',async(req,res)=>{
   if (buttonText === 'delete') {
     const { itemName } = req.body;
     const cartItems = req.cookies.ProductCart || [];
-  
+
     // Find the index of the item to be deleted in the cart
     const itemIndex = cartItems.findIndex(item => item.name === itemName);
-  
+
     if (itemIndex !== -1) {
       // Remove the item from the cart
       cartItems.splice(itemIndex, 1);
     }
-  
+
     // Update the 'ProductCart' cookie with the modified cart
     res.cookie('ProductCart', cartItems);
-  
+
     // Redirect back to the same page
     res.redirect('/Cart');
-  }
-  else{
+  } else {
     const cartItems = req.cookies.ProductCart || [];
     const username = req.cookies.username;
-  
+
+    
     try {
-      // Generate a unique order number
       const orderNumber = Math.floor(Math.random() * 1000000);
-  
-      // Create an array to store the order items
       const orderItems = [];
   
-      // Iterate over each item in the cart
       for (const cartItem of cartItems) {
-        // Retrieve the corresponding product from the database
-        const product = await Product.findOne({ 'name of product': cartItem.name });
+        const productName = cartItem.name; // Retrieve the product name from the cart item
   
-        // Calculate the total price for the order item
-        const totalPrice = product.price * cartItem.quantity;
+        const product = await Product.findOne({ 'name of product': productName });
   
-        // Create a new order item object
-        const orderItem = {
-          name: username,
-          ordernumber: orderNumber,
-          'name of product': product['name of product'],
-          price: product.price,
-          picture: product.picture,
-          quantity: cartItem.quantity
-        };
+        if (product) {
+          const selectedQuantity = parseInt(req.body[`quantity-${productName}`]); // Use the product name as the unique identifier
   
-        // Add the order item to the array
-        orderItems.push(orderItem);
+          if (selectedQuantity && selectedQuantity <= product.quantity) {
+            // Update the quantity of the product in the cart
+            cartItem.quantity = selectedQuantity;
+  
+            // Subtract the ordered quantity from the product quantity in the database
+            product.quantity -= selectedQuantity;
+  
+            // Save the updated product in the database
+            await product.save();
+  
+            const orderItem = {
+              name: username,
+              ordernumber: orderNumber,
+              'name of product': product['name of product'],
+              price: product.price,
+              picture: product.picture,
+              quantity: selectedQuantity
+            };
+  
+            orderItems.push(orderItem);
+          } else {
+            // Insufficient quantity or invalid selected quantity, handle accordingly (e.g., show error message)
+            console.error('Insufficient quantity or invalid selected quantity for:', productName);
+          }
+        } else {
+          // Product not found, handle accordingly (e.g., show error message)
+          console.error('Product not found:', productName);
+        }
       }
   
-      // Insert the order items into the orders collection
       await Order.insertMany(orderItems);
-  
-      // Clear the cart items
       res.clearCookie('ProductCart');
-  
-      res.redirect('/Cart'); // Redirect to the orders page or any other desired destination
+      res.redirect('/Cart');
     } catch (error) {
       console.error('Error adding order to database:', error);
       res.send('Error adding order to database');
-    } 
+    }
   }
-})
+});
 // ...
 
 router.post('/delete', (req, res) => {

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>All Products</title>
+    <title>Beachproducts</title>
     <style>
      
     </style>
@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   </head>
   <body>
-             <!-- סרגל עליון -->
-             <nav class="navbar navbar-expand-sm bg-light navbar-primary">
+
+                  <!-- סרגל עליון -->
+            <nav class="navbar navbar-expand-sm bg-light navbar-primary">
               <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                   <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
@@ -68,9 +69,9 @@
             </nav>
     <!-- תצוגת המוצר -->
     <div class="container" id="product2">
-   <h1>Boardshorts</h1>
+   <h1>Beachproducts</h1>
 
-    <form action="/boardshorts" method="post">
+    <form action="/beach" method="post">
       <div class="sorting-container">
         <label for="sorting">Sort By:</label>
         <select id="sorting" name="sorting">
@@ -82,12 +83,12 @@
       <button type="submit">Click to sort</button>
     </form>
   </div>
-  <form action="/boardshorts/Addto" method="post">
+  <form action="/beach/Addto" method="post">
     <div class="card-columns">
       <% products.forEach(function(product) { %>
         <div class="card" style="width:400px;height: 600px;" id="products">
           <% if (product.picture) { %>
-            <img class="card-img-top" style="width:250px" height="200px" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" />
+            <img class="card-img-top" style="width:200px" height="200px" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" />
           <% } else { %>
             <p>No image available</p>
           <% } %>
