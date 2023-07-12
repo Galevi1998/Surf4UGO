@@ -117,6 +117,7 @@
                     </td>
                     <td class="column-width"><img class="card-img-top" style="width:50px" height="50px" src="<%= product.picture %>" alt="<%= product['name of product'] %> Image" /></td>
                     <td><%= product.price * item.quantity %></td>
+                    <%  totalPrice +=(product.price * item.quantity); %>
                     <td>
                       <form action="/Cart/delete" method="post">
                         <input type="hidden" name="itemName" value="<%= product['name of product'] %>">
@@ -129,7 +130,7 @@
               
                 </tbody>
             </table>
-            <p>The total price is -<%= totalPrice%> </p>
+            <p>The total price is -<%= totalPrice%> $</p>
             <button type="submit" name="action" value="buy" class="delete-button" name="action" value="Clear">Buy</button>      
             </div>
           </form>
