@@ -36,7 +36,6 @@ router.post('/',async(req,res)=>{
     const [actionType, productName] = action.split(':');
 
   if (buttonText === 'delete') {
-    console.log("Go");
     const { itemName } = req.body;
     const cartItems = req.cookies.ProductWishList || [];
   
@@ -55,7 +54,6 @@ router.post('/',async(req,res)=>{
     res.redirect('/WishList');
   }
   else if(actionType === 'cart'){
-    console.log("Go");
       // Retrieve the existing cart items from the cookie
       const existingCart = req.cookies.ProductCart || [];
 
@@ -88,15 +86,15 @@ router.post('/',async(req,res)=>{
       
     }
 }
+  }
   else{
-    console.log("GalClear");
     const cartItems = req.cookies.ProductWishList || [];
     const username = req.cookies.username;
+    console.log("object2");
       // Clear the cart items
       res.clearCookie('ProductWishList');
       res.redirect('/WishList'); // Redirect to the orders page or any other desired destination
   }
-}
 });
 
 router.post('/delete', (req, res) => {

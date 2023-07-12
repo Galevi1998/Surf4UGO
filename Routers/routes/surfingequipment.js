@@ -10,6 +10,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.get('/', async (req, res) => {
   try {
     const products = await Product.find({ category: 'surfing equipment', quantity: { $gt: 0 } });
+    console.log(products);
     res.render('surfingequipment', { products });
   } catch (error) {
     console.error(error);
@@ -32,7 +33,7 @@ router.post('/', async (req, res) => {
       // Handle invalid sorting option
       return res.status(400).send('Invalid sorting option');
     }
-
+    console.log(products);
     res.render('surfingequipment', { products });
   } catch (error) {
     console.error(error);

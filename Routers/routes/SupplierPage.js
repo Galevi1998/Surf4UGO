@@ -44,5 +44,9 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.post('/Delete' , async(req,res)=>{
+    console.log("GotIn");
+    
+  });
 
   module.exports = router;
