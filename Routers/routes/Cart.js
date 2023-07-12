@@ -136,14 +136,11 @@ router.post('/', async (req, res) => {
 // ...
 
 router.post('/delete', (req, res) => {
-  console.log("object");
   const { itemName } = req.body;
-  console.log(itemName);
   const cartItems = req.cookies.ProductCart || [];
 
   // Find the index of the item to be deleted in the cart
   const itemIndex = cartItems.findIndex(item => item.name === itemName);
-  console.log(itemIndex);
 
   if (itemIndex !== -1) {
     // Remove the item from the cart
@@ -166,7 +163,6 @@ router.post('/Quantity', (req, res) => {
 
   // Find the index of the item to be deleted in the cart
   const itemIndex = cartItems.findIndex(item => item.name === itemName);
-  console.log(cartItems);
 
   if (itemIndex !== -1) {
     // Remove the item from the cart
@@ -175,7 +171,6 @@ router.post('/Quantity', (req, res) => {
 
   // Add the item back with the updated quantity
   cartItems.push({ name: itemName, quantity: parseInt(quantity) });
-  console.log(cartItems);
 
   // Update the cookie with the updated cart items
   res.cookie('ProductCart', cartItems);
