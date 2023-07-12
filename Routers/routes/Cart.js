@@ -11,14 +11,13 @@ router.use(cookieParser());
 
 router.get('/', async (req, res) => {
   const cartItems = req.cookies.ProductCart || [];
-  console.log(cartItems);
 
   try {
     // Retrieve the product data from the database for each product in the cart
     const productNames = cartItems.map(item => item.name);
     const products = await Product.find({ 'name of product': { $in: productNames } });
-    console.log(productNames);
-    console.log(products);
+    // console.log(productNames);
+     console.log(cartItems);
 
 
     res.render('Cart', { cartItems, products });
@@ -52,7 +51,33 @@ router.post('/', async (req, res) => {
 
     // Redirect back to the same page
     res.redirect('/Cart');
-  } else {
+  } else if(buttonText === 'Q'){
+    const itemName = req.body.itemName2;
+    const quantity = req.body[`quantity-${itemName}`];
+  
+    const cartItems = req.cookies.ProductCart || [];
+  
+    // Find the index of the item to be deleted in the cart
+    const itemIndex = cartItems.findIndex(item => item.name === itemName);
+    console.log(cartItems);
+  
+    if (itemIndex !== -1) {
+      // Remove the item from the cart
+      cartItems.splice(itemIndex, 1);
+    }
+  
+    // Add the item back with the updated quantity
+    cartItems.push({ name: itemName, quantity: parseInt(quantity) });
+    console.log(cartItems);
+  
+    // Update the cookie with the updated cart items
+    res.cookie('ProductCart', cartItems);
+  
+    // Redirect to the Cart page or perform any other necessary actions
+    res.redirect('/Cart');
+
+  }
+  else {
     const cartItems = req.cookies.ProductCart || [];
     const username = req.cookies.username;
 
@@ -113,10 +138,12 @@ router.post('/', async (req, res) => {
 router.post('/delete', (req, res) => {
   console.log("object");
   const { itemName } = req.body;
+  console.log(itemName);
   const cartItems = req.cookies.ProductCart || [];
 
   // Find the index of the item to be deleted in the cart
   const itemIndex = cartItems.findIndex(item => item.name === itemName);
+  console.log(itemIndex);
 
   if (itemIndex !== -1) {
     // Remove the item from the cart
@@ -129,6 +156,36 @@ router.post('/delete', (req, res) => {
   // Redirect back to the same page
   res.redirect('/Cart');
 });
+
+
+router.post('/Quantity', (req, res) => {
+  const itemName = req.body.itemName2;
+  const quantity = req.body[`quantity-${itemName}`];
+
+  const cartItems = req.cookies.ProductCart || [];
+
+  // Find the index of the item to be deleted in the cart
+  const itemIndex = cartItems.findIndex(item => item.name === itemName);
+  console.log(cartItems);
+
+  if (itemIndex !== -1) {
+    // Remove the item from the cart
+    cartItems.splice(itemIndex, 1);
+  }
+
+  // Add the item back with the updated quantity
+  cartItems.push({ name: itemName, quantity: parseInt(quantity) });
+  console.log(cartItems);
+
+  // Update the cookie with the updated cart items
+  res.cookie('ProductCart', cartItems);
+
+  // Redirect to the Cart page or perform any other necessary actions
+  res.redirect('/Cart');
+});
+
+
+
 
 // ...
 

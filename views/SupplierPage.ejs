@@ -83,7 +83,7 @@
      <a class="btn btn-primary" href="/updateproducts">Update Product</a>
 
    </div>
-
+<form action="/SupplierPage/Delete" method="post">
    <div class="card-columns">
     <% products.forEach(function(product) { %>
       <div class="card" style="width:400px;height: 550px;" id="products2">
@@ -98,7 +98,7 @@
         <p class="card-text">Quantity: <%= product.quantity %></p>
         <p class="card-text" id="description"><%= product.description %></p>
         <div class="button-container2">
-          <a class="btn btn-primary" href="#">Delete</a>
+          <button type="submit" >Deltet</button>
           <a class="btn btn-primary" href="/updateproducts/<%= product['name of product'] %>">Update</a>
           <a class="btn btn-primary" href="/show1product/<%= product['name of product'] %>">Product page</a>
         </div></div>
@@ -109,6 +109,8 @@
     <h1>There are no products</h1>
     <a class="btn btn-primary" href="/AddProduct/">Add Product</a>
       <% } %>
+</form>
+
 
 <!-- פוטר -->
 <footer>

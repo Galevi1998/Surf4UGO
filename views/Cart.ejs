@@ -94,38 +94,39 @@
             </thead>
             <tbody>
               <% let totalPrice = 0; %>
-              <% cartItems.forEach(function(item, index) { %>
-                    <tr>
-                      <% const product = products[index]; %>
-              <% if (product) { %>
-                      <td class="column-width"><%= product['name of product'] %></td>
-                      <td class="column-width"><%= product.brand %></td>
-                      <td class="column-width"><%= product.price %></td>
-                      <td class="column-width"><%= product.category %></td>
-                      <td class="column-width">
+              <% cartItems.forEach(function(item) { %>
+                <% const product = products.find(prod => prod['name of product'] === item.name); %>
+                <% if (product) { %>
+                  <tr>
+                    <td class="column-width"><%= product['name of product'] %></td>
+                    <td class="column-width"><%= product.brand %></td>
+                    <td class="column-width"><%= product.price %></td>
+                    <td class="column-width"><%= product.category %></td>
+                    <td class="column-width">
+                      <form id="quantity-form" action="/Cart/Quantity" method="post">
+                        <input type="hidden" name="itemName2" value="<%= product['name of product'] %>">
                         <div class="quantity-select">
                           <select name="quantity-<%= product['name of product'] %>">
                             <% for (let i = 1; i <= product.quantity; i++) { %>
-                              <option value="<%= i %>" <% if (i === item.quantity) { %> selected <% } %>><%= i %></option>
+                              <option value="<%= i %>" <% if (parseInt(item.quantity) === i) { %> selected <% } %>><%= i %></option>
                             <% } %>
                           </select>
+                          <button type="submit" class="delete-button" name="action" value="Q">Change Quantity</button>
                         </div>
-
-                      </td>
-                      <td class="column-width"><img class="card-img-top" style="width:50px" height="50px" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" /></td>
-                      <td><%= product.price * item.quantity %></td>
-                      <%totalPrice += product.price * item.quantity;%>
-                      <div>
+                      </form>
+                    </td>
+                    <td class="column-width"><img class="card-img-top" style="width:50px" height="50px" src="<%= product.picture %>" alt="<%= product['name of product'] %> Image" /></td>
+                    <td><%= product.price * item.quantity %></td>
+                    <td>
                       <form action="/Cart/delete" method="post">
-                      <td>
                         <input type="hidden" name="itemName" value="<%= product['name of product'] %>">
                         <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
-                      </td>
                       </form>
-                    </div>
-                      <% } %>
-                    </tr>
-                    <% }); %>
+                    </td>
+                  </tr>
+                <% } %>
+              <% }); %>
+              
                 </tbody>
             </table>
             <p>The total price is -<%= totalPrice%> </p>
@@ -133,65 +134,6 @@
             </div>
           </form>
           <%}%>            
-
-
-
-  <!-- <% if (cartItems.length === 0) { %>
-    <h1>Cart Empty</h1>
-  <% } else { %>
-    <form action="/Cart" method="post">
-      <table>
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Brand</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Quantity</th>
-            <th>Img</th>
-            <th>Total Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% let totalPrice = 0; %>
-          <% cartItems.forEach(function(item, index) { %>
-            <tr>
-              <% const product = products[index]; %>
-              <% if (product) { %>
-              <td><%= product['name of product'] %></td>
-              <td><%= product.brand %></td>
-              <td><%= product.price %></td>
-              <td><%= product.category %></td>
-              <td>
-                <div class="quantity-select">
-                  <select name="quantity-<%= product['name of product'] %>">
-                    <% for (let i = 1; i <= product.quantity; i++) { %>
-                      <option value="<%= i %>" <% if (i === item.quantity) { %> selected <% } %>><%= i %></option>
-                    <% } %>
-                  </select>
-                </div>
-              </td>
-              <td><img class="card-img-top" style="width:200px" height="200px" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" /></td>
-              <td><%= product.price * item.quantity %></td>
-              <%totalPrice += product.price * item.quantity;%>
-              <div>
-              <form action="/Cart/delete" method="post">
-              <td>
-                <input type="hidden" name="itemName" value="<%= product['name of product'] %>">
-                <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
-              </td>
-              </form>
-            </div>
-              <% } %>
-            </tr>
-            <% }); %>
-        </tbody>
-      </table>
-      <p>The total price is -<%= totalPrice%> </p>
-      <button type="submit" name="action" value="buy" class="delete-button" name="action" value="Clear">Buy</button>
-    </form>
-    <%}%> -->
 
  <!-- פוטר -->
  <footer>
@@ -205,6 +147,17 @@
           </p>
               
 </footer>
+<!-- <script>
+  function submitForm() {
+    var form = document.getElementById("quantity-form");
+    form.submit();
+  }
+</script> -->
+
+
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
