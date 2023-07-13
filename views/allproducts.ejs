@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <!-- <link rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"> -->
+
   </head>
   <body>
             <!-- סרגל עליון -->
@@ -82,10 +88,10 @@
       <button type="submit">Click to sort</button>
     </form>
   </div>
-  <form action="/allproducts/Addto" method="post">
-    <div class="card-columns">
+  <form class="row" action="/allproducts/Addto" method="post">
+    <div class="col">
       <% products.forEach(function(product) { %>
-        <div class="card" style="width:400px;height: 600px;" id="products">
+        <div class="card" style="width:400px;height: 620px;" id="products">
           <% if (product.picture) { %>
             <img class="card-img-top" style="width:200px" height="200px" src="<%= product.picture %>" alt="<%= product["name of product"] %> Image" />
           <% } else { %>
@@ -97,8 +103,8 @@
             <p class="card-text">Quantity: <%= product.quantity %></p>
             <p class="card-text" id="description"><%= product.description %></p>
             <div class="button-container2">
-              <button type="submit" name="action" value="cart:<%= product["name of product"] %>">Add to Cart List</button>
-              <button type="submit" name="action" value="wishlist:<%= product["name of product"] %>">Add to Wish List</button>
+              <button class="btn btn-primary" type="submit" name="action" value="cart:<%= product["name of product"] %>">Add to Cart List</button>
+              <button class="btn btn-primary" type="submit" name="action" value="wishlist:<%= product["name of product"] %>">Add to Wish List</button>
               <a class="btn btn-primary" href="/show1product/<%= product['name of product'] %>">Product page</a>
             </div>
           </div>

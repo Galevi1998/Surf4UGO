@@ -102,28 +102,34 @@
 <div class="container-xl" id="add" >
   <h1>Add Product</h1>
   <form action="/Addproduct" method="POST">
-    <label for="productName">Product Name:</label>
-    <input type="text" id="productName" name="name of product" required><br><br>
-
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="price" required><br><br>
-
-    <label for="picture">Picture link:</label>
-    <input type="text" id="picture" name="picture" required><br><br>
-
-    <label for="category">Category:</label>
-    <select id="category" name="category" required>
+    <div class="row">
+    <label class="col-sm-3" for="productName">Product Name:</label>
+    <input  class="col-sm-3" type="text" id="productName" name="name of product" required><br><br>
+  </div>
+  <div class="row">
+    <label class="col-sm-3" for="price">Price:</label>
+    <input class="col-sm-3" type="number" id="price" name="price" required><br><br>
+  </div>
+  <div class="row">
+    <label class="col-sm-3" for="picture">Picture link:</label>
+    <input class="col-sm-3" type="text" id="picture" name="picture" required><br><br>
+  </div>
+  <div class="row">
+    <label class="col-sm-3" for="category">Category:</label>
+    <select class="col-sm-3" id="category" name="category" required>
       <% categories.forEach(function(category) { %>
         <option value="<%= category %>"><%= category %></option>
       <% }); %>
     </select><br><br>
-
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea><br><br>
-
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" required><br><br>
-  
+  </div>
+  <div class="row">
+    <label class="col-sm-3" for="description">Description:</label>
+    <textarea class="col-sm-3" id="description" name="description" required></textarea><br><br>
+  </div>
+  <div class="row">
+    <label class="col-sm-3" for="quantity">Quantity:</label>
+    <input class="col-sm-3" type="number" id="quantity" name="quantity" required><br><br>
+  </div>
     <button class="btn btn-primary" type="submit">Add product</button>
     
 

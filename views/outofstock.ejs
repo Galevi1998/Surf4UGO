@@ -83,8 +83,8 @@
       <button type="submit">Click to sort</button>
     </form>
   </div>
-  <form action="/outofstock/Addto" method="post">
-    <div class="card-columns">
+  <form class="row" action="/outofstock/Addto" method="post">
+    <div class="col">
       <% products.forEach(function(product) { %>
         <div class="card" style="width:400px;height: 600px;" id="products">
           <% if (product.picture) { %>
