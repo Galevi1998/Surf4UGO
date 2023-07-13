@@ -83,10 +83,10 @@
 
 
    </div>
-<form action="/SupplierPage/Delete" method="post">
-   <div class="card-columns">
+<form class="row" action="/SupplierPage/Delete" method="post">
+   <div class="col">
     <% products.forEach(function(product) { %>
-      <div class="card" style="width:400px;height: 550px;" id="products2">
+      <div class="card" style="width:400px;height: 600px;" id="products2">
         <% if (product.picture) { %>
           <img class="card-img-top" style="width:200px" height="200px" src="<%= product.picture %>" alt="<%= product['name of product'] %> Image" />
         <% } else { %>
@@ -98,7 +98,7 @@
         <p class="card-text">Quantity: <%= product.quantity %></p>
         <p class="card-text" id="description"><%= product.description %></p>
         <div class="button-container2">
-          <button type="submit" name="productName" value="<%= product['name of product'] %>">Delete</button>
+          <button class="btn btn-primary" type="submit" name="productName" value="<%= product['name of product'] %>">Delete</button>
           <a class="btn btn-primary" href="/updateproducts/<%= product['name of product'] %>">Update</a>
           <a class="btn btn-primary" href="/show1product/<%= product['name of product'] %>">Product page</a>
         </div></div>
