@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-  <h1>Update <%= product["name of product"] %></h1>
-  <form action="/updateproducts/<%= product['name of product'] %>" method="POST">
+  <!-- <h1>Update <%= product["name of product"] %></h1>
+  <form action="/updateproducts/<%= product['name of product'] %>" method="POST"> -->
 
 
               <!-- סרגל עליון -->
@@ -68,9 +68,13 @@
               </nav>
 
   <!-- עדכון מוצר -->
-<div class="container-xl" >
-  <h1>Update Product</h1>
-  <form action="/updateproducts" method="POST">
+
+  <!-- <h1>Update <%= product["name of product"] %></h1> -->
+
+<div class="container-xl" id="add" >
+  <h1>Update <%= product["name of product"] %></h1>
+  <!-- <form action="/updateproducts" method="POST"> -->
+      <form action="/updateproducts/<%= product['name of product'] %>" method="POST">
     <label for="productName">Product Name:</label>
     <input type="text" id="productName" name="name of product" required><br><br>
   
@@ -82,7 +86,7 @@
 
     <label for="picture">Picture:</label>
     <div>
-      <img id="productImage" src="<%= product.picture %>" alt="Product Image">
+      <img id="productImage" style="width: 100px;height: 100px;" src="<%= product.picture %>" alt="Product Image">
     </div>
     <label for="pictureLink">Image Link:</label>
     <input type="text" id="pictureLink" name="pictureLink" value="<%= product.picture %>" required>
