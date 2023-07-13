@@ -86,7 +86,7 @@ router.post('/',async(req,res)=>{
       
     }
 }
-  }
+  
   else{
     const cartItems = req.cookies.ProductWishList || [];
     const username = req.cookies.username;
@@ -95,6 +95,7 @@ router.post('/',async(req,res)=>{
       res.clearCookie('ProductWishList');
       res.redirect('/WishList'); // Redirect to the orders page or any other desired destination
   }
+}
 });
 
 router.post('/delete', (req, res) => {
@@ -192,6 +193,3 @@ router.post('/Addto', (req, res) => {
   //     res.redirect('/allproducts');
   //   }
 module.exports = router;
-
-
-  

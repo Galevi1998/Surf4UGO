@@ -77,7 +77,7 @@ router.get('/:productName', async (req, res) => {
         // Log the value of the "ProductWishList" cookie
         console.log('ProductWishList:', existingWishlist);
   
-        res.redirect('/Cart');
+        res.redirect('/WishList');
       } else {
         res.send('Invalid request');
       }

@@ -148,6 +148,7 @@ app.get('/learnaboutus', (req, res) => {
 app.get('/', (req, res) => {
     const username = req.cookies.username;
     const permission = req.cookies.Permission;
+    console.log(username);
     if (username) {
         console.log(username);
       res.render('home', { naming: username,permission:permission });

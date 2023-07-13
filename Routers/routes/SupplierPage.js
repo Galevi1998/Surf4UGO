@@ -44,5 +44,17 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.post('/Delete', async (req, res) => {
+    const productName = req.body.productName;
+    try {
+      await Product.findOneAndRemove({ 'name of product': productName });
+      res.redirect('/SupplierPage');
+    } catch (error) {
+      console.error("Failed to delete product:", error);
+      res.status(500).json({ error: "Failed to delete product" });
+    }
+  });
+  
+  
 
   module.exports = router;
